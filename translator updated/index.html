@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/16c456c613.js" crossorigin="anonymous"></script>
+</head>
+<link rel="stylesheet" href="opp2.css">
+<body>
+    <div id="container">
+        <div id="input">
+            <select name="inp_lang" id="inp_lang">
+                <option value="en">English</option>
+                <option value="ru">Russian</option>
+                <option value="ar">Arabic</option>
+                <option value="it">Italian</option>2
+                <option value="zh">Chinese</option>
+                <option value="es">Spanish</option>
+                <option value="hi">Hindi</option>
+            </select>
+            
+            <textarea oninput="debounce(main,1000)" id="input-text" placeholder="Enter text"></textarea>
+            <div id="controls">
+                <button onclick="Translate()">Translate</button>
+
+            </div>
+            
+        </div>
+        <div >
+            <button id="middle"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        </div>
+        <div id="output">
+            <select name="out_lang" id="out_lang">
+                <option value="hi">Hindi</option>
+                <option value="ru">Russian</option>
+                <option value="en">English</option>
+                <option value="ar">Arabic</option>
+                <option value="it">Italian</option>
+                <option value="zh">Chinese</option>
+                <option value="es">Spanish</option>
+            </select>
+            <div id="output-inner" placeholder="Translation">Translation</div>
+        </div>
+    </div>
+    
+</body>
+</html>
+<script src="oop2.js"></script>
+<!-- <script>
+    let input
+    function read(id){
+        return document.getElementById(id).value;
+    }
+
+    async function Translate(){
+        try{
+            
+            input = read("input-text")
+            const inp_lang = read("inp_lang")
+            const out_lang = read("out_lang")
+            const res = await fetch('https://libretranslate.de/translate',{
+                method:"POST",
+
+                body: JSON.stringify({
+                    q: input,
+                    source: inp_lang,
+                    target: out_lang,
+                    format: 'text',
+                }),
+                headers:{
+                    "Content-Type": "application/json"
+                },
+            });
+            const data = await res.json();
+            document.getElementById('output-inner').innerText = data.translatedText
+            console.log("data:",data)
+        } catch(err){
+            console.log('err:',err)
+        }
+    }
+
+let controls = document.getElementById('controls')
+
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
+
+if(SpeechRecognition){
+    console.log("working")
+    controls.insertAdjacentHTML("beforeend",'<button id="micbtn"><i id="mic" class="fa-solid fa-microphone"></i></button>')
+    const recognition = new SpeechRecognition();
+    recognition.continuous = true;
+
+    let mic = document.getElementById('mic')
+    let micbtn = document.getElementById('micbtn')
+
+    micbtn.addEventListener('click',() => {
+        if(mic.style.color =="red"){
+            mic.style.color ="black"
+            recognition.stop()
+        }
+        else{
+            mic.style.color ="red";
+            recognition.lang = inp.value;
+            recognition.start();
+        }
+    })
+    recognition.addEventListener('start',()=>{
+        console.log('start')
+    })
+    recognition.addEventListener('end',()=>{
+        console.log('end')
+    })
+    recognition.addEventListener('result',(event)=>{
+        document.querySelector('#input-text').innerText =null
+        document.querySelector('#input-text').innerText = event.results[0][0].transcript
+        
+        setTimeout(()=>{
+            Translate();
+            recognition.stop();
+            mic.style.color ="black";
+        },750)
+    })
+}
+else{
+    console.log("not working")
+
+}
+
+let middle = document.querySelector('#middle')
+let inp = document.querySelector('#inp_lang')
+let out = document.querySelector('#out_lang')
+let inptext = document.querySelector('#input-text')
+let outtext = document.querySelector('#output-inner')
+let temp1
+let temp2
+
+middle.addEventListener('click',()=>{
+
+ 
+    temp1 = inp.value
+    inp.value  = out.value
+    out.value = temp1
+
+    temp2 = inptext.value
+    inptext.value  = outtext.innerText
+    outtext.innerText = temp2
+    
+  
+})
+</script> -->
+
+
+
+
+
+
+
+
+

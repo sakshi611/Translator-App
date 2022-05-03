@@ -1,0 +1,45 @@
+    #container{
+        display: flex;
+        border: 1px solid rgb(0, 0, 0);
+        background-color: gray;
+    }
+    #middle{
+        margin-top: 65px;
+    }
+    #input, #output{
+        flex: 1;
+        margin: 5%;
+        height: 300px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-color: #fff;
+    }
+    #input-text{
+        width: 99%;
+        height: 220px;
+        text-align: center;
+        font-size: 45px;
+        border: none;
+        font-family: inherit;
+    }
+    #output-inner{
+        text-align: center;
+        font-size: 45px;
+        color: gray;
+    }
+    #inp_lang, #out_lang{
+        width: 100%;
+        height: 15%;
+        border-radius:  0px 5px;
+        font-size: 20px;
+        padding: 0 2px 0 2px;
+    }
+    body{
+        margin: 0%;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    i{
+        font-size: 15px;
+    }
+    #controls{
+        margin: 0px 20px;
+    }
